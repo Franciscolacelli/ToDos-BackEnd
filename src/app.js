@@ -22,6 +22,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ROOT
+app.get('/', (req, res) => {
+    res.send('Servidor funcionando') 
+});
 
 // CREAR
 app.post('/api/v1/todos', async (req, res) => {
