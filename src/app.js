@@ -4,6 +4,7 @@ const db = require('./utils/database');
 const Todos = require('./models/todos.models');
 require('dotenv').config();
 const PORT = process.env.PORT || 8000;
+const cors = require('cors');
 // -----
 
 // CONECT and SINCRON DB
@@ -18,7 +19,9 @@ db.sync()
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
+
 
 // CREAR
 app.post('/api/v1/todos', async (req, res) => {
