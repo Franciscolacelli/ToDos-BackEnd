@@ -2,7 +2,8 @@
 const express = require('express');
 const db = require('./utils/database');
 const Todos = require('./models/todos.models');
-
+require('dotenv').config();
+const PORT = process.env.PORT || 8000;
 // -----
 
 // CONECT and SINCRON DB
@@ -78,6 +79,6 @@ app.use((req,res) => {
 })
 
 // SERVIDOR ESCUCHANDO
-app.listen(8000, () => { 
-    console.log("Servidor corriendo en el puerto 8000")
+app.listen(PORT, () => { 
+    console.log(`Servidor escuchando en el puerto ${PORT}`)
  }); 
